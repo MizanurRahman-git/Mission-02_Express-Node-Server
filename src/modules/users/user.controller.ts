@@ -5,7 +5,6 @@ import { userService } from "./user.service";
 const createUser = async (req: Request, res: Response) => {
   try {
     const result = await userService.createUserIntoDB(req.body);
-
     res.status(201).json({
       success: true,
       message: "User Created...",
@@ -23,7 +22,7 @@ const createUser = async (req: Request, res: Response) => {
 const getAllUsers = async (req: Request, res: Response) => {
   try {
     const result = await userService.getAllUsersFromDB();
-
+console.log("from controller:", req.user);
     res.status(200).json({
       success: true,
       message: "Users Retrived Succesfully...",
